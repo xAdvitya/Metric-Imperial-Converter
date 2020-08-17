@@ -20,11 +20,19 @@ module.exports = function (app) {
       var input = req.query.input;
       var initNum = convertHandler.getNum(input);
       var initUnit = convertHandler.getUnit(input);
+        if(initNum == undefined){
+      res.json({initNum:initNum,initUnit:undefined,returnNum:undefined,returnUnit:undefined,toString:undefined});
+    }
       var returnNum = convertHandler.convert(initNum, initUnit);
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
       
-      //res.json
+    console.log(initNum);
+    console.log(initUnit);
+    console.log(returnNum);
+    console.log(returnUnit);
+    console.log(toString);
+    res.json({initNum:initNum,initUnit:initUnit,returnNum:returnNum,returnUnit:returnUnit,toString:toString});
     });
     
 };
