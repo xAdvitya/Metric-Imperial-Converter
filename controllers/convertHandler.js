@@ -24,10 +24,16 @@ function ConvertHandler() {
   this.getNum = function(input) {
     var result;
     let length = input.length;
-
-    result = input.slice(0, length - 1);
-
+    var arr = input.split(/[A-Za-z]/);
+    console.log(arr)
+    result = arr[0];
+    console.log("input is "+input);
+    console.log("result is "+result);
+    console.log(result.replace("/", "."))
+    console.log(result.replace("/", ".").includes("/"))
+    
     if (result.replace("/", ".").includes("/")) {
+      console.log("entered here")
       return undefined;
     } else if (result.includes("/")) {
       result = result.split("/");
@@ -40,7 +46,7 @@ function ConvertHandler() {
       if (parseFloat(result, 0)) {
         result = parseFloat(result, 0);
       } else {
-    console.log(1);        
+    console.log("def"+1);        
         return 1;
       }
     }
@@ -121,7 +127,10 @@ function ConvertHandler() {
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
     var result;
-
+   
+   if(initUnit == undefined || initNum == undefined){
+     return undefined;
+   }
     switch (initUnit.toLowerCase()) {
         
       case "gal": {
@@ -157,6 +166,9 @@ function ConvertHandler() {
 
   this.getString = function(initNum, initUnit, returnNum, returnUnit) {
     var result;
+    if(initNum == undefined || initUnit == undefined){
+      return undefined;
+    }
     initUnit = this.spellOutUnit(initUnit.toLowerCase());
     returnUnit = this.spellOutUnit(returnUnit.toLowerCase());
     
