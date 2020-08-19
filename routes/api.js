@@ -26,12 +26,18 @@ module.exports = function (app) {
       var returnNum = convertHandler.convert(initNum, initUnit);
       var returnUnit = convertHandler.getReturnUnit(initUnit);
       var toString = convertHandler.getString(initNum, initUnit, returnNum, returnUnit);
-      
+    
+    console.log("////////////");
+    
     console.log(initNum);
     console.log(initUnit);
     console.log(returnNum);
     console.log(returnUnit);
     console.log(toString);
+    
+    console.log("////////////");
+    
+    
     res.json({initNum:initNum,initUnit:initUnit,returnNum:returnNum,returnUnit:returnUnit,toString:toString});
     });
     

@@ -39,7 +39,7 @@ suite("Unit Tests", function() {
     });
 
     test("Invalid Input (double fraction)", function(done) {
-      var input = "33.4/11.4k/55";
+      var input = "33.4/11.4/55kg";
       assert.equal(convertHandler.getNum(input), undefined);
       done();
     });
